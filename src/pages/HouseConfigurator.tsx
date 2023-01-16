@@ -16,11 +16,11 @@ export default function HouseConfigurator() {
     const navigate = useNavigate();
     const conditionalComponent = () => {
         switch (step) {
-            case 1:
+            case 0:
                 return <HouseSize/>;
-            case 2:
+            case 1:
                 return <RoofStyle/>;
-            case 3:
+            case 2:
                 return <Basement/>;
             default:
                 return <Summary/>;
@@ -29,9 +29,13 @@ export default function HouseConfigurator() {
     const onSubmit = (data: any) => {
         navigate('/');
     };
-    const formMethods = useForm();
+    const formMethods = useForm({
+        defaultValues: {
+            houseSizeId: '1',
+        }
+    });
     return (
-        <Card>
+        <Card background="#ebecef">
             <FormProvider {...formMethods}>
                 <form onSubmit={formMethods.handleSubmit(onSubmit)}>
                     {conditionalComponent()}

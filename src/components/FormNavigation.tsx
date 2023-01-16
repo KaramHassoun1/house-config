@@ -1,5 +1,4 @@
-import {useState} from "react";
-import {Box, Tab, TabList, TabPanel, TabPanels, Tabs} from "@chakra-ui/react";
+import {Box, Flex, Tab, TabList, Tabs} from "@chakra-ui/react";
 
 export default function FormNavigation({tabIndex, setTabindex}: any) {
 
@@ -13,33 +12,30 @@ export default function FormNavigation({tabIndex, setTabindex}: any) {
     }
 
     return (
-        <Box>
+        <Flex position="absolute"
+              bottom="20px"
+              width="100%"
+              marginX="auto"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center">
             <input
+                style={{width: "300px"}}
                 type='range'
                 min='0'
-                max='2'
+                max='3'
                 value={tabIndex}
                 onChange={handleSliderChange}
             />
 
             <Tabs index={tabIndex} onChange={handleTabsChange}>
                 <TabList>
-                    <Tab>One</Tab>
-                    <Tab>Two</Tab>
-                    <Tab>Three</Tab>
+                    <Tab>HOUSE SIZE</Tab>
+                    <Tab>ROOF STYLE</Tab>
+                    <Tab>BASEMENT</Tab>
+                    <Tab>SUMMARY</Tab>
                 </TabList>
-                <TabPanels>
-                    <TabPanel>
-                        <p>Click the tabs or pull the slider around</p>
-                    </TabPanel>
-                    <TabPanel>
-                        <p>Yeah yeah. What's up?</p>
-                    </TabPanel>
-                    <TabPanel>
-                        <p>Oh, hello there.</p>
-                    </TabPanel>
-                </TabPanels>
             </Tabs>
-        </Box>
+        </Flex>
     );
 }
