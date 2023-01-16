@@ -7,7 +7,7 @@ import HouseSizes from "../../data/houseSizes";
 import {useState} from "react";
 
 export default function HouseSize() {
-    const [displayedImage, setDisplayedImage] = useState(HouseSizeImg);
+    const [displayedImage, setDisplayedImage] = useState("HouseSize.png");
     return (
         <Flex width="100vw" height="100vh" justifyContent="space-around" alignItems="center">
             <Image src={require("assets/" + displayedImage)} height="80vh" alignSelf="flex-start"/>
